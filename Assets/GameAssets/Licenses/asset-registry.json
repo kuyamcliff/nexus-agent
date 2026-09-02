@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "License registry for every asset used in the racing game. One entry per acquired asset. See tools/asset-acquisition/verify_asset_registry.py for the validator and Assets/GameAssets/Licenses/README.md for how this is used.",
+  "entrySchema": {
+    "assetName": "",
+    "manufacturer": "",
+    "model": "",
+    "creator": "",
+    "source": "",
+    "downloadDate": "",
+    "purchaseId": "",
+    "license": "",
+    "commercialUse": true,
+    "modificationAllowed": true,
+    "gameDistributionAllowed": true,
+    "platforms": [],
+    "oemPermissionReference": "",
+    "licenseDocument": "",
+    "notes": ""
+  },
+  "entries": [
+    {
+      "assetName": "Kenney Car Kit",
+      "manufacturer": "",
+      "model": "generic (40+ traffic/prototype vehicles)",
+      "creator": "Kenney",
+      "source": "https://kenney.nl/assets/car-kit",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "FBX",
+        "GLB",
+        "OBJ"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Generic traffic/background/prototype vehicles only - not for hero cars. Public domain, no attribution required."
+    },
+    {
+      "assetName": "Kenney Racing Kit",
+      "manufacturer": "",
+      "model": "generic track props (roads, grandstands, barriers, signage)",
+      "creator": "Kenney",
+      "source": "https://kenney.nl/assets/racing-kit",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "PNG sprites/textures"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Track infrastructure prototype props. Public domain, no attribution required."
+    },
+    {
+      "assetName": "Poly Haven - aerial_asphalt_01",
+      "manufacturer": "",
+      "model": "asphalt road surface",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/aerial_asphalt_01",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "JPG"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. Textures."
+    },
+    {
+      "assetName": "Poly Haven - rocky_terrain_02",
+      "manufacturer": "",
+      "model": "rocky terrain / trackside",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/rocky_terrain_02",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "JPG"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. Textures."
+    },
+    {
+      "assetName": "Poly Haven - concrete_wall_006",
+      "manufacturer": "",
+      "model": "concrete wall / infrastructure",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/concrete_wall_006",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "JPG"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. Textures."
+    },
+    {
+      "assetName": "Poly Haven - gravel",
+      "manufacturer": "",
+      "model": "gravel road surface",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/gravel",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "JPG"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. Textures."
+    },
+    {
+      "assetName": "Poly Haven - brown_mud_leaves_01",
+      "manufacturer": "",
+      "model": "mud / off-track surface",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "JPG"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. Textures."
+    },
+    {
+      "assetName": "Poly Haven - kloofendal_48d_partly_cloudy_puresky",
+      "manufacturer": "",
+      "model": "outdoor lighting HDRI",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "HDR"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. HDRI."
+    },
+    {
+      "assetName": "Poly Haven - qwantani_dusk_2_puresky",
+      "manufacturer": "",
+      "model": "dusk lighting HDRI",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/qwantani_dusk_2_puresky",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "HDR"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. HDRI."
+    },
+    {
+      "assetName": "Poly Haven - overcast_soil_puresky",
+      "manufacturer": "",
+      "model": "overcast lighting HDRI",
+      "creator": "Poly Haven",
+      "source": "https://polyhaven.com/a/overcast_soil_puresky",
+      "downloadDate": "2026-09-02",
+      "purchaseId": "",
+      "license": "CC0 1.0 Universal",
+      "commercialUse": true,
+      "modificationAllowed": true,
+      "gameDistributionAllowed": true,
+      "platforms": [
+        "HDR"
+      ],
+      "oemPermissionReference": "",
+      "licenseDocument": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "1k resolution pulled for prototyping; re-pull at 4k/8k on the real dev machine for production. HDRI."
+    }
+  ]
+}

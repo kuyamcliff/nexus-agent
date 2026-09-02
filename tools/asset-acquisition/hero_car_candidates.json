@@ -1,0 +1,211 @@
+{
+  "description": "Researched candidate marketplace listings for the ~50-car hero fleet. NONE of these have been purchased or downloaded - this is desk research only, done via web search on 2026-09-02. Every entry needs manual verification before purchase: open the listing, confirm poly/texture/LOD/interior quality against the brief, and read the actual license terms (a Sketchfab 'Download Free' listing is very often personal-use-only or CC-BY despite appearing in search results next to paid ones - the notes below are informed guesses from search snippets, not confirmed license text).",
+  "criticalCaveat": "A marketplace listing's stated license covers the SELLER'S 3D model file. It does not by itself establish that the seller had the right to model a trademarked vehicle design, and it is not the same thing as OEM/manufacturer permission to use the brand commercially in a shipped game. Every car below needs the 'oemPermissionReference' field filled in via your own manufacturer licensing process before it can go in asset-registry.json as commercialUse:true.",
+  "searchBlockedSources": [
+    "turbosquid.com (HTTP 403 from this container - could not be searched directly, only appeared in third-party search snippets)",
+    "artstation.com/marketplace (HTTP 403 from this container)",
+    "assetstore.unity.com and fab.com were reachable but not deeply queried in this pass - worth checking directly, Unity Asset Store in particular sometimes has vetted 'game ready' vehicle packs"
+  ],
+  "cars": [
+    {"manufacturer": "BMW", "model": "M3 E46", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "BMW E46 Tier 3 - GameReady Asset by CG Customs", "url": "https://sketchfab.com/3d-models/bmw-e46-tier-3-d5c1fa0061f04f96a92e11135b456fb9", "licenseNote": "explicitly labeled game-ready; verify license on page"},
+      {"source": "Sketchfab", "title": "BMW M3 E46 by MMC Works", "url": "https://sketchfab.com/3d-models/bmw-m3-e46-f1b00ff37d504629b10031da32bc7497", "licenseNote": "free download - verify CC terms"}
+    ]},
+    {"manufacturer": "BMW", "model": "M4", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "BMW M4 G82 [Mobile Game-Ready]", "url": "https://sketchfab.com/3d-models/bmw-m4-g82-mobile-game-ready-150577a700ff4ab7926ea78ae6a78fa8", "licenseNote": "paid store listing, explicitly mobile-game-ready - check triangle budget fits non-mobile too"},
+      {"source": "CGTrader", "title": "BMW M4 category (854 BMW models total)", "url": "https://www.cgtrader.com/3d-models/m-4", "licenseNote": "browse for a specific game-ready, interior-included listing"}
+    ]},
+    {"manufacturer": "BMW", "model": "M4 CSL", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "BMW M4 CSL 2022 by zifir3d", "url": "https://sketchfab.com/3d-models/bmw-m4-csl-2022-52ca9e3645cb40fc9527b0b5938144be", "licenseNote": "paid, described suitable for games"},
+      {"source": "Sketchfab", "title": "BMW M4 CSL by RPMRender", "url": "https://sketchfab.com/3d-models/bmw-m4-csl-43b6158879c1490aafacd8b480147eb9", "licenseNote": "free - verify terms"}
+    ]},
+    {"manufacturer": "BMW", "model": "M5", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "BMW M5 F90 [Mobile Game-Ready]", "url": "https://sketchfab.com/3d-models/bmw-m5-f90-mobile-game-ready-b798756a64294e2d868e60e7ec23b207", "licenseNote": "paid, 35k tris, mobile-oriented - low poly for a hero car, verify"},
+      {"source": "Sketchfab Store", "title": "BMW M5 CS Low-poly by Eihab_3D", "url": "https://sketchfab.com/3d-models/bmw-m5-cs-low-poly-fcdf681bd918456fa95795278d295493", "licenseNote": "paid, 8828 polys - likely too low-poly for a hero car, better for traffic/background"}
+    ]},
+    {"manufacturer": "BMW", "model": "M8", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "BMW M8 by Shahrozsabziwar", "url": "https://sketchfab.com/3d-models/bmw-m8-650868c8bec04b4397c1d5b51083da94", "licenseNote": "described Unity/Unreal/CryEngine compatible, 50-100k poly range"},
+      {"source": "Sketchfab", "title": "2020 BMW M8 Coupe by Outlaw Games", "url": "https://sketchfab.com/3d-models/2020-bmw-m8-coupe-f69bc7c528804552b2ff032d7c1e9fb4", "licenseNote": "free - verify terms"}
+    ]},
+    {"manufacturer": "BMW", "model": "M2", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "BMW M2 G87 by RPMRender", "url": "https://sketchfab.com/3d-models/bmw-m2-g87-753e6e667486408f9cdcce5b0c8fc27b", "licenseNote": "free - verify terms"},
+      {"source": "Sketchfab", "title": "BMW M2 G87 by Patricars", "url": "https://sketchfab.com/3d-models/bmw-m2-g87-8e00bbe507874708a09b8746bee66e21", "licenseNote": "described as high-quality realistic, for render/animation/viz - verify game-readiness"}
+    ]},
+    {"manufacturer": "BMW", "model": "M3 E30", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "BMW E30 Coupe 1990 Ultra Realistic by PolyNeast", "url": "https://sketchfab.com/3d-models/bmw-e30-coupe-1990-ultra-realistic-3d-car-model-2d8db679e84b47929309f02f62ec8e56", "licenseNote": "explicitly described for games/cinematics/renders - verify M3 badge/spec vs base E30"},
+      {"source": "Sketchfab", "title": "[FREE] BMW M3 E30 by Martin Trafas", "url": "https://sketchfab.com/3d-models/free-bmw-m3-e30-ac3c7013434e403e8faff87948caf422", "licenseNote": "includes Blender source + textures - verify terms"}
+    ]},
+    {"manufacturer": "Lamborghini", "model": "Aventador", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "\"Game Ready\" Lamborghini Aventador, HQ Textures + Interior", "url": "https://sketchfab.com/tags/lamborghini-aventador", "licenseNote": "found via tag page in search snippet, ~9MB FBX explicitly labeled game-ready - locate exact listing and verify"},
+      {"source": "CGTrader", "title": "Low Poly Lamborghini Aventador", "url": "https://www.cgtrader.com/3d-models/car/racing-car/low-poly-lamborghini-aventador-695d9cfd-6eb8-47b6-98f7-f4afb71d16d9", "licenseNote": "$2, OBJ - likely too low detail for a hero car, background/traffic candidate only"}
+    ]},
+    {"manufacturer": "Lamborghini", "model": "Huracán", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Lambo Huracan Tecnica 2023 VR Ready by zizian", "url": "https://sketchfab.com/3d-models/3d-model-lambo-huracan-tecnica-2023-vr-ready-b2799585d0a94934b719fb50334a4c39", "licenseNote": "paid, explicitly for games/simulators"},
+      {"source": "Sketchfab", "title": "Lamborghini Huracan (Liberty Walk) by Thcyrax", "url": "https://sketchfab.com/3d-models/vehicle-lamborghini-huracan-liberty-walk-7370a156fc3747fab5082be8163b1cc2", "licenseNote": "free, game-ready low-poly, note this is a widebody variant not stock"}
+    ]},
+    {"manufacturer": "Lamborghini", "model": "Revuelto", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Lamborghini Revuelto Mansory by Ottto3d", "url": "https://sketchfab.com/3d-models/lamborghini-revuelto-mansory-8d6c3f96da6e40bca0bfd8d80f46ca37", "licenseNote": "animation-ready (doors/hood/trunk), note this is a Mansory bodykit variant not stock"},
+      {"source": "Sketchfab", "title": "Free Lamborghini Revuelto by ALIEEEN", "url": "https://sketchfab.com/3d-models/free-lamborghini-revuelto-cf52245eb68f48daa909c7ad2a8deaa3", "licenseNote": "search snippet claims commercial/personal use allowed - verify directly, do not trust snippet"}
+    ]},
+    {"manufacturer": "Lamborghini", "model": "Urus", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Low Poly Lamborghini Urus by SharkyStudios", "url": "https://sketchfab.com/3d-models/low-poly-lamborghini-urus-f53a9e268c144aec9cc4b1a7b3f0fe27", "licenseNote": "free, described ready for games/animations/renders"},
+      {"source": "Sketchfab", "title": "Lamborghini Urus by Klyannikov LowPoly", "url": "https://sketchfab.com/3d-models/lamborghini-urus-7fe49e3095c44b67a9c4b82b3130b4fb", "licenseNote": "described mobile game-ready"}
+    ]},
+    {"manufacturer": "Lamborghini", "model": "Huracán STO", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Lamborghini Huracan STO 2021 by awesomeonion", "url": "https://sketchfab.com/3d-models/lamborghini-huracan-sto-2021-196187b593a249e09a79f7c33e8f050f", "licenseNote": "free - verify terms and detail level"},
+      {"source": "Sketchfab", "title": "Lamborghini Huracan STO by Jonny324", "url": "https://sketchfab.com/3d-models/lamborghini-huracan-sto-04571676b80e4fa981b2aab6de1fb7e2", "licenseNote": "verify - source notes it was made with Blockbench, may be stylized/low-fidelity"}
+    ]},
+    {"manufacturer": "Ferrari", "model": "488 GTB", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Ferrari 488 GTB (car/sport-car listing)", "url": "https://cgtrader.com/3d-models/car/sport-car/ferrari-488-gtb-918b9b5f-4a62-4f3e-adf6-97e1029c1354", "licenseNote": "verify full-vehicle listing vs the wheel/engine-only part listings that also turned up"},
+      {"source": "Sketchfab", "title": "Ferrari 488 gtb by Turbostuart", "url": "https://sketchfab.com/3d-models/ferrari-488-gtb-c2bca88f04044daaa7c0274a9c0f2cc1", "licenseNote": "free - verify terms"}
+    ]},
+    {"manufacturer": "Ferrari", "model": "488 Pista", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Ferrari 488 Pista by Ammarico", "url": "https://sketchfab.com/3d-models/ferrari-488-pista-2ff6367da5f041e8ae9af282517f0607", "licenseNote": "described accurate exterior proportions/detail, suitable for games/VR/AR"},
+      {"source": "CGTrader", "title": "Ferrari 488 Pista 3D model", "url": "https://www.cgtrader.com/3d-models/car/sport-car/ferrari-488-pista-1fd3c347-05cf-4d7d-b67c-024d39b13a5d", "licenseNote": "verify format/detail"}
+    ]},
+    {"manufacturer": "Ferrari", "model": "F8 Tributo", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Ferrari F8 Tributo (613k polys, interior incl.)", "url": "https://www.cgtrader.com/3d-models/car/luxury-car/ferrari-f8-tributo-6e8b4df7-ade9-4a65-9917-cfa696353b47", "licenseNote": "high poly, interior/seats/wheel/dash included - will need decimation/LODs for real-time use"},
+      {"source": "Sketchfab Store", "title": "Unbranded High Poly Italian Supercar Game Ready by ProGraphix", "url": "https://sketchfab.com/3d-models/ferrari-f8-tributo-6bcd4a3c08034c9a9e7e3ecd0966ce7c", "licenseNote": "listed as 'unbranded' - deliberately de-branded to sidestep trademark issues; would need re-branding work and its own trademark review if badged as an actual Ferrari"}
+    ]},
+    {"manufacturer": "Ferrari", "model": "296 GTB", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Ferrari 296 GTB by ProGraphix", "url": "https://sketchfab.com/3d-models/ferrari-296-gtb-cbdfbb31260f43dc951adbe4b6437d08", "licenseNote": "multi-format (.blend/.fbx/.obj/.dae/.stl) - verify license, ProGraphix also sells the 'unbranded' F8 above"},
+      {"source": "CGTrader", "title": "Realistic Ferrari 296 GTB PL Rigged HighPoly and Customizable", "url": "https://www.cgtrader.com/3d-models/car/sport-car/realistic-ferrari-296-gtb-pl-rigged-highpoly-and-customizable", "licenseNote": "rigged, multi-format"}
+    ]},
+    {"manufacturer": "Ferrari", "model": "SF90 Stradale", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Ferrari SF90 Stradale by thelightning", "url": "https://sketchfab.com/3d-models/ferrari-sf90-stradale-833c5e9fb6f945cc82450fffbb96e77b", "licenseNote": "verify terms and detail"},
+      {"source": "RenderHub", "title": "Ferrari SF90 XX Stradale by djvimoo1031", "url": "https://www.renderhub.com/djvimoo1031/ferrari-sf90-xx-stradale-2023", "licenseNote": "described optimized for real-time engines incl. Unity/UE - verify, this is the XX track variant not base SF90"}
+    ]},
+    {"manufacturer": "Porsche", "model": "911 GT3", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Porsche 911 GT3 by Outlaw Games", "url": "https://sketchfab.com/3d-models/porsche-911-gt3-593c83f3662a4a45a016f95dedd9f243", "licenseNote": "free - verify terms"},
+      {"source": "CGTrader", "title": "Porsche 911 GT3 Targa", "url": "https://www.cgtrader.com/3d-models/car/sport-car/porsche-911-gt3-targa", "licenseNote": "note: Targa body style, verify against standard coupe if that's the target"}
+    ]},
+    {"manufacturer": "Porsche", "model": "911 GT3 RS", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Porsche 911 GT3 RS 2023 (992), game/render ready", "url": "https://www.cgtrader.com/3d-models/car/racing-car/porsche-911-gt3-rs-2023-bf5184df-48bc-45c9-bf7a-aeb7c189ed99", "licenseNote": "explicitly optimized for UE/Unity/Blender/3ds Max/Maya/C4D"},
+      {"source": "Sketchfab Store", "title": "2022 Porsche 911 GT3 RS by Valdy", "url": "https://sketchfab.com/3d-models/2022-porsche-911-gt3-rs-473eae8d8e97465eaf8074389d2d9b20", "licenseNote": "paid, separated parts, interior + wheels modeled"}
+    ]},
+    {"manufacturer": "Porsche", "model": "911 Turbo S", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Porsche 911 Turbo S (2021) by NLM", "url": "https://sketchfab.com/3d-models/porsche-911-turbo-s-2021-400c1e3e0482433798f1f0695b3833a4", "licenseNote": "paid, all textures included, NLM appeared as a recurring quality-looking paid-store publisher across several searches"},
+      {"source": "CGTrader", "title": "Porsche 911 Turbo S 992 2020", "url": "https://www.cgtrader.com/3d-models/car/sport-car/porsche-911-turbo-s-992-2020", "licenseNote": "described finely detailed exterior+interior"}
+    ]},
+    {"manufacturer": "Porsche", "model": "918 Spyder", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Porsche 918 Spyder 2015", "url": "https://www.cgtrader.com/3d-models/car/sport-car/porsche-918-spyder-2015", "licenseNote": "MAX/OBJ/3DS/FBX/C4D/LWO"},
+      {"source": "Sketchfab", "title": "Porsche 918 Spyder by srush651", "url": "https://sketchfab.com/3d-models/porsche-918-spyder-a052ffe9832c4197b861c1a947618e46", "licenseNote": "free - verify terms; avoid the 'extracted from the game Neverness to Everness' listing that also turned up (likely ripped asset, do not use)"}
+    ]},
+    {"manufacturer": "Porsche", "model": "Cayman GT4", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Porsche 718 Cayman GT4 RS by zizian", "url": "https://sketchfab.com/3d-models/3d-model-porsche-718-cayman-gt4-rs-7104724d57834ecdbf9f4eba89c7bfbc", "licenseNote": "paid - note GT4 RS variant, verify against base GT4 if that's the target"},
+      {"source": "CGTrader", "title": "Porsche 718 Cayman GT4 RS 2022 lowpoly", "url": "https://www.cgtrader.com/3d-models/car/sport-car/porsche-718-cayman-gt4-rs-2022-lowpoly", "licenseNote": "real-time oriented"}
+    ]},
+    {"manufacturer": "Mercedes-AMG", "model": "GT", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Mercedes-Benz AMG GT Coupe 2024 by NLM", "url": "https://sketchfab.com/3d-models/mercedes-benz-amg-gt-coupe-2024-9170e14ee194466ea32f63027e539d6c", "licenseNote": "paid, animated (doors/hood), full suspension+engine, described game-usable"},
+      {"source": "Sketchfab", "title": "Mercedes AMG GT 63 S by CG Customs", "url": "https://sketchfab.com/3d-models/mercedes-amg-gt-63-s-80561d28f6b04d8f93f163067c67a699", "licenseNote": "game-ready, 30k tris, same publisher as the BMW E46 Tier 3 listing above"}
+    ]},
+    {"manufacturer": "Mercedes-AMG", "model": "GT Black Series", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Mercedes-AMG GT Black Series 20", "url": "https://www.cgtrader.com/3d-models/car/racing-car/mercedes-amg-gt-black-series-20", "licenseNote": "detailed interior/engine/trunk"},
+      {"source": "Sketchfab", "title": "Mercedes-AMG GT Black Series 2021 by GY4N Models", "url": "https://sketchfab.com/3d-models/mercedes-amg-gt-black-series-2021-20db8f28297044ecb864c2e9e9dc19ad", "licenseNote": "free - verify terms"}
+    ]},
+    {"manufacturer": "Mercedes-AMG", "model": "C63", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Mercedes Benz C63S AMG E Performance 2023 by NLM", "url": "https://sketchfab.com/3d-models/mercedes-benz-c63s-amg-e-performance-2023-48a8a51aff784e40b1679b6f87f4a0cc", "licenseNote": "paid, detailed interior, same NLM publisher as several above"},
+      {"source": "CGTrader", "title": "Mercedes C63 Amg Sedan 2019 (free, animated/rigged)", "url": "https://www.cgtrader.com/free-3d-models/car/sport-car/mercedes-c63-amg-sedan-2019", "licenseNote": "verify CGTrader's free-license terms specifically (varies per listing)"}
+    ]},
+    {"manufacturer": "Mercedes-AMG", "model": "E63", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "2018 Mercedes-AMG E63 S Wagon (free)", "url": "https://www.cgtrader.com/free-3d-models/car/car/2018-mercedes-amg-e63-s-wagon", "licenseNote": "wagon body - verify against sedan if that's the target"},
+      {"source": "Sketchfab", "title": "Mercedes-AMG E63 by Devsanterr", "url": "https://sketchfab.com/3d-models/mercedes-amg-e63-bf291076cc2a4250adaf91f46115895c", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "Mercedes-AMG", "model": "ONE", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Mercedes-AMG Project ONE (136k tris, game-oriented)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/mercedes-amg-project-one", "licenseNote": "$29.99 per search snippet - reasonable poly budget for a hero hypercar"},
+      {"source": "Sketchfab", "title": "Mercedes AMG One (free, 30k tris, CC-BY per snippet)", "url": "https://sketchfab.com/3d-models/mercedes-amg-one-77b02e5a555d4819b490f67eeb348d22", "licenseNote": "snippet claims CC-Attribution - if accurate, commercial use is allowed WITH attribution; confirm on listing page before relying on this"}
+    ]},
+    {"manufacturer": "McLaren", "model": "720S", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "McLaren 720s Spider by NLM", "url": "https://sketchfab.com/3d-models/mclaren-720s-spider-55daa3225615481baabd98e2d3226b0f", "licenseNote": "paid, highly detailed interior"},
+      {"source": "CGTrader", "title": "McLaren 720s (car/sport-car)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/mclaren-720s-2673c919-e710-456a-99aa-3f003b075419", "licenseNote": "verify format/detail"}
+    ]},
+    {"manufacturer": "McLaren", "model": "765LT", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "McLaren 765LT 2021 by SQUIR3D", "url": "https://sketchfab.com/3d-models/mclaren-765lt-2021-96c6bb14737f4c7b9862496d9e3eaa4b", "licenseNote": "paid"},
+      {"source": "CGTrader", "title": "McLaren 765LT (rigged)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/mclaren-765lt-07b006b4-53cb-4cda-9ea7-398ddb71099a", "licenseNote": "PBR materials, rigged/posable"}
+    ]},
+    {"manufacturer": "McLaren", "model": "Artura", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "McLaren Artura 2023 by Phazan Product", "url": "https://sketchfab.com/3d-models/mclaren-artura-2023-a6fb8223d8f6435992f55d712982b767", "licenseNote": "paid, 76.9k tris / 29.1k verts - reasonable hero-car budget"},
+      {"source": "CGTrader", "title": "Mclaren Artura HQ Interior Exterior (rigged)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/mclaren-artura-hq-interior-exterior", "licenseNote": "PBR, clean topology per listing, verify poly count for real-time"}
+    ]},
+    {"manufacturer": "McLaren", "model": "750S", "status": "candidates found", "candidates": [
+      {"source": "TurboSquid", "title": "3D McLaren 750S Lowpoly", "url": "https://www.turbosquid.com/3d-models/3d-mclaren-750s-lowpoly-2171102", "licenseNote": "TurboSquid itself is unreachable from this container (403) - this URL came from a search snippet, open and verify manually on the real machine"},
+      {"source": "Sketchfab", "title": "McLaren 750S coupe by ROH3D", "url": "https://sketchfab.com/3d-models/mclaren-750s-coupe-425ab0fcab4e4223a88edc0afc824e9b", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "McLaren", "model": "P1", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Mclaren P1 2015 Game Ready Low-poly 3D model by ThunderBird", "url": "https://sketchfab.com/3d-models/mclaren-p1-2015-game-ready-low-poly-3d-model-d104c88f0c6e431d96816ef382472da7", "licenseNote": "explicitly game-ready, optimized for real-time"},
+      {"source": "Sketchfab", "title": "McLaren P1 - $25 by iSteven", "url": "https://sketchfab.com/3d-models/mclaren-p1-25-7d7fd64f5c7c4da28ec91b0c55c83bc5", "licenseNote": "paid, verify detail level"}
+    ]},
+    {"manufacturer": "Audi", "model": "R8", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Audi R8 V10 by Phazan Product", "url": "https://sketchfab.com/3d-models/audi-r8-v10-eaf4e7e16d9245b2b2bb64878355ef72", "licenseNote": "paid, same publisher as McLaren Artura 2023 above"},
+      {"source": "Sketchfab Store", "title": "Audi R8 Spyder by NLM", "url": "https://sketchfab.com/3d-models/audi-r8-spyder-c1df5b893028412488d53d9b4104254a", "licenseNote": "paid, detailed interior"}
+    ]},
+    {"manufacturer": "Audi", "model": "RS6 Avant", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Audi RS6 Avant 2023 (Interior included) by NLM", "url": "https://sketchfab.com/3d-models/audi-rs6-avant-2023-interior-included-0ac71efc8c584f6f87175c1b653be171", "licenseNote": "paid, interior included"},
+      {"source": "CGTrader", "title": "Audi RS6 GT Avant Game Ready", "url": "https://www.cgtrader.com/3d-models/car/sport-car/audi-rs6-gt-avant-game-ready", "licenseNote": "explicitly game-ready per listing title, low-poly, rig-ready"}
+    ]},
+    {"manufacturer": "Audi", "model": "RS3", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Audi RS3 LMS by jdaniel_92", "url": "https://sketchfab.com/3d-models/audi-rs3-lms-cace54de683a4f7d890369d4d61120f1", "licenseNote": "paid, 15k polys, note this is the LMS race variant not road RS3"},
+      {"source": "CGTrader", "title": "2022-2023 Audi RS3 (rigged, PBR)", "url": "https://www.cgtrader.com/3d-models/vehicle/other/2022-2023-audi-rs3", "licenseNote": "rigged tires"}
+    ]},
+    {"manufacturer": "Audi", "model": "RS7", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Audi RS7 Sportback 2024 with interior (game-ready, UE5/UE4)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/audi-rs7-sportback-2024-with-interior", "licenseNote": "explicitly UE-compatible, simple wheel/steering rig, Blender 4.0.2 + Substance Painter per listing"},
+      {"source": "Sketchfab", "title": "Audi RS7 Sportback by davebhargav", "url": "https://sketchfab.com/3d-models/audi-rs7-sportback-3f533d99e1b943eba76e6bd20c4f8c65", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "Nissan", "model": "GT-R R35", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Nissan GT-R R35-Std-SCS01 (UV+PBR, Unity+UE4 texture sets)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/nissan-gtr-r35-std-scs01", "licenseNote": "explicitly ships separate Unity and UE4 texture sets, low+high poly versions - strong candidate"},
+      {"source": "Sketchfab Store", "title": "Nissan GT-R 2017 (R35) by GORDEYKOMARK", "url": "https://sketchfab.com/3d-models/nissan-gt-r-2017-r35-031a4cc4fc564fcbba08722dbefc07ef", "licenseNote": "paid"}
+    ]},
+    {"manufacturer": "Nissan", "model": "370Z", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "2015 Nissan 370Z Nismo (Z34) by Ddiaz Design", "url": "https://sketchfab.com/3d-models/2015-nissan-370z-nismo-z34-b66ac30ac64a4f1aa034fce37745abe3", "licenseNote": "CAUTION: snippet says 'based on a Real Racing 3 3D model' - if this is a ripped/derivative asset from another commercial game, do NOT use; verify provenance carefully before considering"},
+      {"source": "CGTrader", "title": "Nissan 370z VR/AR/low-poly", "url": "https://www.cgtrader.com/3d-models/car/sport-car/nissan-370z-2e19163f-8bf4-425b-a7ab-4ea71e14704e", "licenseNote": "safer bet given the Real Racing 3 provenance concern on the Sketchfab option"}
+    ]},
+    {"manufacturer": "Toyota", "model": "GR Supra", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Toyota Supra Game Ready model by The Polygon pusher", "url": "https://sketchfab.com/3d-models/toyota-supra-game-ready-model-7b787eebef194c6381f8b419e3776ed7", "licenseNote": "paid, explicitly game-ready, has interior per listing"},
+      {"source": "Sketchfab", "title": "Toyota GR Supra Pandem V15 2020 Game Ready Model", "url": "https://sketchfab.com/3d-models/toyota-gr-supra-pandem-v15-2020-game-ready-model-9994418a16314a4d89817c7b342bfb2f", "licenseNote": "14k tris, rigged for mobile - note widebody Pandem kit not stock, verify against base GR Supra if needed"}
+    ]},
+    {"manufacturer": "Toyota", "model": "GR86", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Toyota GR 86 2022 by SQUIR3D", "url": "https://sketchfab.com/3d-models/toyota-gr-86-2022-1c86f6b4a9494727971e3b7cac28f27f", "licenseNote": "paid"},
+      {"source": "CGTrader", "title": "Toyota GR 86 2022 with interior", "url": "https://www.cgtrader.com/3d-models/car/sport-car/toyota-gr-86-2022-with-interior", "licenseNote": "interior included"}
+    ]},
+    {"manufacturer": "Honda", "model": "NSX", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "Game-Ready Mid-Poly Model of Honda NSX by FGZ", "url": "https://sketchfab.com/3d-models/honda-nsx-ist-gen-cd14d8ae6720480c8b67c5059a1e2700", "licenseNote": "free, explicitly game-ready mid-poly, 1st-gen NSX - verify which generation matches the brief (assumed modern NC1)"},
+      {"source": "Sketchfab", "title": "Honda NSX (NC1) by KOElkast1007", "url": "https://sketchfab.com/3d-models/honda-nsx-nc1-d287a3da58b3476a8b398fc4334916b8", "licenseNote": "modern second-gen NSX (2016+), free - verify terms"}
+    ]},
+    {"manufacturer": "Honda", "model": "Civic Type R", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "2018 Honda Civic Type R (free, rigged)", "url": "https://www.cgtrader.com/free-3d-models/car/sport-car/2018-honda-civic-type-r", "licenseNote": "PBR materials per listing"},
+      {"source": "Sketchfab", "title": "2023 Honda Civic Type R by All-Wide", "url": "https://sketchfab.com/3d-models/2023-honda-civic-type-r-00dbcacf8c7c4b718a6271c0e8dd306f", "licenseNote": "current-gen (FL5) - verify terms"}
+    ]},
+    {"manufacturer": "Ford", "model": "Mustang GT", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab Store", "title": "Ford Mustang GT by rajatnidaria", "url": "https://sketchfab.com/3d-models/ford-mustang-gt-21d8cba1a9a24af287cb19e82d8b4949", "licenseNote": "paid, Maya-modeled/Substance-textured per listing"},
+      {"source": "CGTrader", "title": "Ford Mustang GT (racing-car listing)", "url": "https://www.cgtrader.com/3d-models/car/racing-car/ford-mustang-gt-299cd810-5f87-4b09-998c-c540cecd85c5", "licenseNote": "verify format/detail"}
+    ]},
+    {"manufacturer": "Ford", "model": "Mustang Shelby GT500", "status": "candidates found", "candidates": [
+      {"source": "Sketchfab", "title": "VEHICLE - FORD MUSTANG SHELBY GT500 by Thcyrax (game-ready, low-poly)", "url": "https://sketchfab.com/3d-models/vehicle-ford-mustang-shelby-gt500-b21e1abb91284be3b89d964c9142de9a", "licenseNote": "explicitly Unity-scale-configured, separate wheel/body meshes, same publisher (Thcyrax) as the Huracan Liberty Walk listing above"},
+      {"source": "RenderHub", "title": "Ford Mustang Shelby GT500 2020 by 777angels777", "url": "https://www.renderhub.com/777angels777/ford-mustang-shelby-gt500-2020", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "Chevrolet", "model": "Corvette C8", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "2023 Chevrolet Corvette C8 Z06 (game-ready, low-poly)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/2023-chevrolet-corvette-c8-z06", "licenseNote": "note Z06 trim variant, verify against base Stingray if that's the target"},
+      {"source": "Sketchfab", "title": "2020 Chevy Corvette C8 by David_Holiday", "url": "https://sketchfab.com/3d-models/2020-chevy-corvette-c8-5f143d22b5ca43aeb90e85f19940d5e8", "licenseNote": "base Stingray, free - verify terms"}
+    ]},
+    {"manufacturer": "Chevrolet", "model": "Camaro ZL1", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Chevrolet Camaro ZL1 2017 (rigged, 555k polys)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/chevrolet-camaro-zl1-2017-93cc9387-a06e-4454-97c8-d9c4dfb3bd1f", "licenseNote": "high poly, will need decimation for real-time; detailed interior+exterior, rigged"},
+      {"source": "CGTrader", "title": "Chevrolet Camaro ZL1 Low-poly (Blender 4.5, real-time oriented)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/chevrolet-camaro-zl1-2022", "licenseNote": "better fit for direct real-time use per listing description"}
+    ]},
+    {"manufacturer": "Dodge", "model": "Challenger SRT Hellcat", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Dodge Challenger SRT Hellcat (realistic, optimized for UE/Unity)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/dodge-challenger-srt-hellcat-7853e667-1656-4ee8-873a-b2ffc40c1f09", "licenseNote": "explicitly clean topology for real-time engines per listing"},
+      {"source": "RenderHub", "title": "Dodge Challenger SRT Hellcat 2023 by AlphaGroup", "url": "https://www.renderhub.com/alphagroup/dodge-challenger-srt-hellcat-2023", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "Koenigsegg", "model": "Jesko", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Ultra Realistic Koenigsegg Jesko (rigged, active rear wing, scissor doors)", "url": "https://www.cgtrader.com/3d-models/car/racing-car/ultra-realistic-koenigsegg-jesko-3d-model", "licenseNote": "high production value per listing (rigged twin-turbo V8), likely high poly - verify real-time budget"},
+      {"source": "Sketchfab", "title": "Koenigsegg Jesko Absolut (tagged game-ready)", "url": "https://sketchfab.com/3d-models/koenigsegg-jesko-absolut-2231264c93094edc813d40814674387c", "licenseNote": "Absolut is the top-speed variant, verify against base Jesko if needed"}
+    ]},
+    {"manufacturer": "Bugatti", "model": "Chiron", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Bugatti Chiron category (637 models, Blender/Maya/UE/Unity-checked)", "url": "https://www.cgtrader.com/3d-models/bugatti-chiron", "licenseNote": "browse for a specific full-vehicle, interior-included, game-ready listing"},
+      {"source": "Sketchfab", "title": "Bugatti Chiron(Game car) by Alexander_Dubai", "url": "https://sketchfab.com/3d-models/bugatti-chirongame-car-1dfd7388ed1b45cc97c9505f8e852bf8", "licenseNote": "verify terms"}
+    ]},
+    {"manufacturer": "Pagani", "model": "Huayra", "status": "candidates found", "candidates": [
+      {"source": "CGTrader", "title": "Pagani Huayra R (108.6k tris, low-poly for games)", "url": "https://www.cgtrader.com/3d-models/car/sport-car/pagani-huayra-r", "licenseNote": "note this is the track-only Huayra R variant, verify against road Huayra if needed"},
+      {"source": "Sketchfab", "title": "Pagani Huayra BC by JUSTGAME (Creative Commons Attribution per snippet)", "url": "https://sketchfab.com/3d-models/pagani-huayra-bc-a7fa42b90f91469a8035f1728177c576", "licenseNote": "if CC-BY is accurate, commercial use with attribution - confirm on listing page; BC is a special variant not base Huayra"}
+    ]}
+  ]
+}
