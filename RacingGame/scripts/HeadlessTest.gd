@@ -1,52 +1,77 @@
 extends Node3D
-## Verification harness only (not part of the shipped game): loads the real
-## Main scene, simulates holding the accelerator for a few seconds of
-## physics ticks, and prints the car's actual position/speed so we can
-## confirm the vehicle simulation genuinely moves the car - not just that
-## the scene loads without errors.
+## Regression test (not shipped). Loads the real Main scene and drives the
+## player car around the circuit *through the real keyboard input path* - the
+## test decides where to steer from the track geometry, then presses the same
+## actions a human would, so the player control path is genuinely exercised
+## rather than bypassed.
+##
+## Asserts the things that have actually broken during development: the car
+## moving under power, staying upright and finite, not launching into the air,
+## not falling through the world (the road was visual-only with no collider
+## once), the AI field circulating instead of beaching itself, and laps
+## actually being counted for both the player and the AI.
+
+const TOTAL_FRAMES := 4200  # 70s at 60Hz
 
 var main: Node3D
-var frame_count := 0
-const STEER_START_FRAME := 300
-const TOTAL_FRAMES := 600 # 10s at 60fps
-var heading_at_steer_start := 0.0
-var max_height := 0.0
+var frame := 0
+var max_h := 0.0
+var min_h := 999.0
+var top_speed := 0.0
+
 
 func _ready() -> void:
-	var main_scene: PackedScene = load("res://scenes/Main.tscn")
-	main = main_scene.instantiate()
+	main = load("res://scenes/Main.tscn").instantiate()
 	add_child(main)
-	print("HEADLESS_TEST: scene instanced OK, nodes=", main.get_child_count())
-	Input.action_press("ui_up")
+	print("TEST: track length=%.0fm samples=%d field=%d" % [
+		main.track.total_length, main.track.sample_count(), main.cars.size()])
+
 
 func _physics_process(_delta: float) -> void:
-	frame_count += 1
-	var car = main.get_node_or_null("Car")
-	if frame_count == 1:
-		print("HEADLESS_TEST: car found=", car != null)
-		if car:
-			print("HEADLESS_TEST: car start pos=", car.global_position)
-			print("HEADLESS_TEST: car wheel count=", car.get_children().filter(func(c): return c is VehicleWheel3D).size())
-	if car:
-		max_height = max(max_height, car.global_position.y)
-	if frame_count == STEER_START_FRAME and car:
-		heading_at_steer_start = car.rotation.y
-		Input.action_press("ui_left")
-		print("HEADLESS_TEST: applying steer at frame ", frame_count, " speed=", car.get_speed_kmh())
-	if frame_count == TOTAL_FRAMES:
-		if car:
-			var pos: Vector3 = car.global_position
-			var speed: float = car.get_speed_kmh()
-			var heading_change: float = rad_to_deg(car.rotation.y - heading_at_steer_start)
-			var is_finite: bool = is_finite(pos.x) and is_finite(pos.y) and is_finite(pos.z) and is_finite(speed)
-			var upright: bool = car.global_transform.basis.y.dot(Vector3.UP) > 0.5
-			print("HEADLESS_TEST: car end pos=", pos)
-			print("HEADLESS_TEST: car speed kmh=", speed)
-			print("HEADLESS_TEST: heading change since steer=", heading_change, " deg")
-			print("HEADLESS_TEST: finite=", is_finite, " upright=", upright)
-			print("HEADLESS_TEST: max height reached=", max_height)
-			var pass_result: bool = is_finite and upright and abs(heading_change) > 5.0 and speed > 5.0 and max_height < 2.0
-			print("HEADLESS_TEST: RESULT=", "PASS" if pass_result else "FAIL")
-		else:
-			print("HEADLESS_TEST: RESULT=FAIL (no car)")
-		get_tree().quit()
+	frame += 1
+	var player: RaceVehicle = main.player
+	var pos := player.global_position
+	max_h = maxf(max_h, pos.y)
+	min_h = minf(min_h, pos.y)
+	top_speed = maxf(top_speed, player.get_speed_kmh())
+
+	AutoDriver.drive(player, main.track)
+
+	if frame == TOTAL_FRAMES:
+		_report(player)
+
+
+func _report(player: RaceVehicle) -> void:
+	var ok := true
+	var pos := player.global_position
+	var finite := is_finite(pos.x) and is_finite(pos.y) and is_finite(pos.z)
+	var upright := player.global_transform.basis.y.dot(Vector3.UP) > 0.5
+
+	print("TEST: player laps=%d best=%s top_speed=%.0f km/h" % [
+		player.laps_completed, RaceManager.format_time(player.best_lap), top_speed])
+	print("TEST: height range=[%.2f, %.2f] finite=%s upright=%s" % [min_h, max_h, finite, upright])
+	for c in main.cars:
+		print("TEST:   %-6s laps=%d progress=%.2f off_track=%s" % [
+			c.display_name, c.laps_completed, c.track_progress(), c.off_track])
+
+	if not finite:
+		ok = false; print("TEST: FAIL non-finite position")
+	if not upright:
+		ok = false; print("TEST: FAIL car not upright")
+	if top_speed < 60.0:
+		ok = false; print("TEST: FAIL never reached a racing speed (%.0f km/h)" % top_speed)
+	if max_h > 3.0:
+		ok = false; print("TEST: FAIL car launched into the air (max y %.2f)" % max_h)
+	if min_h < -2.0:
+		ok = false; print("TEST: FAIL car fell through the world (min y %.1f)" % min_h)
+	if player.laps_completed < 1:
+		ok = false; print("TEST: FAIL player completed no laps")
+	var ai_laps := 0
+	for c in main.cars:
+		if c != player:
+			ai_laps += c.laps_completed
+	if ai_laps < 3:
+		ok = false; print("TEST: FAIL AI field barely moved (total AI laps %d)" % ai_laps)
+
+	print("TEST: RESULT=", "PASS" if ok else "FAIL")
+	get_tree().quit(0 if ok else 1)

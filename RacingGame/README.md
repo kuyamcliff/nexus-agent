@@ -1,92 +1,118 @@
-# Nexus Racing (playable prototype)
+# Nexus Racing
 
-A real, running driving prototype built with **Godot 4.5** — not Unity. Unity was ruled
-out for this because (a) it has no activated license in this environment and (b) its
-Linux Editor has no Android Build Support at all (see `docs/development-machine-audit.md`
-at the repo root). Godot needs neither a license nor an account and runs natively here.
+A playable 3-lap race against three AI opponents on a procedurally-built circuit.
+Built with **Godot 4.5** (free, no licence or account needed) using **only CC0 assets**
+already in this repo — Kenney's Car Kit and Racing Kit, and Poly Haven textures/HDRI.
+None of the 50 real/licensed hero cars from `tools/asset-acquisition/final-50-cars.json`
+are used, because none have actually been purchased.
 
-This uses **only CC0 assets already in the repo** (Kenney Car Kit + Racing Kit, Poly
-Haven textures/HDRI) — none of the 50 real/licensed hero cars from
-`tools/asset-acquisition/final-50-cars.json` are used, since none of those have actually
-been purchased. Swapping in a real car once you've bought and imported one is
-straightforward (see "Using a real hero car" below).
+Unity isn't used here: it has no activated licence in this environment, and its Linux
+Editor ships no Android build support at all (see `docs/development-machine-audit.md`).
 
 ## Running it
-
-On a real machine with Unity... no, wait - **Godot**, with a display:
 
 ```
 godot --path RacingGame
 ```
 
-Or open `RacingGame/` as a project in the Godot editor (4.5+) and press Play.
+Or open `RacingGame/` in the Godot editor (4.5+) and press Play.
 
-**Controls:** Arrow keys / WASD-equivalent default Godot UI actions - Up = throttle,
-Down = brake/reverse, Left/Right = steer.
+**Controls** — Arrows or WASD: Up = throttle, Down = brake/reverse, Left/Right = steer.
+Space = handbrake. Hold **R** to respawn on the racing line if you beach yourself.
 
-## What's actually in it
+You start **last on the grid**. Three laps. Beat NOVA.
 
-- A drivable car (`Car.gd`, `VehicleBody3D` + 4 `VehicleWheel3D`) using Kenney's
-  `race.glb` kart model. Wheel attachment points were measured directly from the source
-  mesh (Blender bounding-box inspection), not guessed.
-- A large asphalt ground plane (the real driving surface) using a Poly Haven asphalt
-  texture, plus a decorative track-boundary loop built from Kenney Racing Kit tiles
-  (visual only - doesn't affect physics, so tile-seam imperfections don't matter).
-- A sky/lighting setup using a Poly Haven HDRI as the environment panorama.
-- A chase camera (`CameraRig.gd`) and a speed HUD (`HUD.gd`).
-- Everything is built procedurally in `Main.gd` at runtime - there's no hand-authored
-  `.tscn` level, so the whole world is defined in readable GDScript.
+## What's in it
 
-## How this was verified (not just "should work")
+- **A real circuit** (~865m): long main straight, fast right sweeper, two kinks, a
+  bottom straight, a left hairpin, and a 90° final corner. Defined as a Catmull-Rom
+  spline through hand-placed control points in `TrackGeometry.gd`.
+- **Everything derives from that one spline** — the asphalt ribbon, painted edge lines,
+  red/white kerbs on corners only, solid barrier walls with real collision, the AI
+  racing line, lap progress, and the off-track test. One source of truth for "where the
+  track is".
+- **Three AI opponents** with distinct cars, cornering confidence, and preferred lines.
+  They look ahead, judge the curvature of what's coming, and brake for it — so they
+  actually race rather than understeering into the scenery.
+- **A real race**: lights-out countdown, lap counting, live standings, best-lap timing,
+  chequered flag, and an end-of-race results panel.
+- **Off-track penalty**: leave the asphalt and you lose grip and power, and the HUD
+  tells you. The grass is physically lower than the road, so you feel the drop.
+- **Chase camera** whose FOV widens with speed, and a HUD with position, lap, live lap
+  time, best lap, and speed.
 
-Three real bugs were found and fixed by actually running the project, not by code
-review alone:
+## Architecture
 
-1. **Engine force was 7x too weak** - caught by a headless physics test
-   (`scripts/HeadlessTest.gd`) that drives the car for simulated seconds and checks it
-   actually covers distance and reaches a real speed.
-2. **Suspension was under-damped and launched the car airborne** under sustained
-   throttle - caught by comparing a numeric max-height check against an actual rendered
-   screenshot that showed the car flying.
-3. **The decorative track boundary was too close to the drivable area** - the chase
-   camera clipped through it once the car had driven far enough, which looked like the
-   car had flown into the sky. Root-caused by comparing car position (grounded, per the
-   physics test) against camera position (also fine) against the rendered image (broken)
-   - the actual bug was geometry placement, not physics or camera code.
+| File | Role |
+|---|---|
+| `TrackGeometry.gd` | The circuit spline: sampling, curvature, progress, lateral offset, lookahead queries |
+| `TrackBuilder.gd` | Turns the spline into meshes, collision, and Kenney-prop scenery |
+| `RaceVehicle.gd` | Shared car: physics, wheels, off-track handling, lap counting |
+| `PlayerCar.gd` / `AICar.gd` | The two drivers, both writing to the same control inputs |
+| `RaceManager.gd` | Countdown → racing → finished, standings, timing |
+| `Main.gd` | Assembles everything and registers the input map |
 
-Verification tooling (kept in the repo as real regression tests, not one-off scratch
-files):
-- `scripts/HeadlessTest.gd` / `scenes/HeadlessTest.tscn` - runs headless
-  (`godot --headless --path RacingGame scenes/HeadlessTest.tscn`), simulates throttle
-  then steering, and asserts the car moved, stayed upright, stayed numerically finite,
-  and never left the ground unexpectedly. Prints `RESULT=PASS` or `RESULT=FAIL`.
-- `scripts/ScreenshotTest.gd` / `scripts/ScreenshotTestMoving.gd` - render the real
-  scene via software OpenGL (works with no GPU, via Mesa llvmpipe:
-  `xvfb-run -a godot --path RacingGame --rendering-driver opengl3 scenes/ScreenshotTest.tscn`)
-  and save an actual PNG, so visual regressions can be caught the same way the three bugs
-  above were.
+Wheel placement is **read from each model at load time** — every Kenney Car Kit vehicle
+names its wheels `wheel-front-left` etc, so swapping in a different car needs no
+hand-measured numbers. The visual wheel meshes are re-parented onto the physics wheels
+so they steer and roll with the simulation.
 
-## Known limitations (honest, not glossed over)
+## Tests
 
-- Visual wheel spin follows the physics simulation (wheel meshes are reparented onto the
-  `VehicleWheel3D` nodes), but there's no wheel rotation animation independent of that -
-  it's correct, just minimal.
-- No collision detection between the car and the decorative track tiles (they're
-  render-only) - you can currently drive through the track boundary visually.
-- Rendered/screenshotted only through Mesa's software rasterizer (llvmpipe) in this
-  no-GPU container - it will very likely look better (proper shadows re-enabled,
-  antialiasing, etc.) on a real GPU. Shadows are currently force-disabled
-  (`shadow_enabled = false` in `Main.gd`) because they were untested on real hardware -
-  worth re-enabling and checking once you're on a real machine.
-- This is a driving sandbox, not a race - no lap timing, opponents, or win condition.
+Both are real regression tests, run headlessly with no GPU:
 
-## Using a real hero car
+```
+godot --headless --path RacingGame scenes/HeadlessTest.tscn   # driving + AI + lap counting
+godot --headless --path RacingGame scenes/FinishTest.tscn     # a full 3-lap race to the flag
+```
 
-Once you've purchased and imported one of the 50 cars from `final-50-cars.json`:
-1. Export/convert it to `.glb` or `.fbx` and drop it in `RacingGame/assets/models/`.
-2. In `Car.gd`, change `CAR_SCENE_PATH` to point at the new file.
-3. Re-measure wheel attachment points for the new mesh (see the Blender bounding-box
-   technique used for `race.glb` - `blender --background --python <script>` querying
-   each wheel object's `matrix_world.translation`) and update the `wheel_defs` dictionary
-   in `Car.gd` accordingly - every car's wheelbase/track width is different.
-4. Re-run `scripts/HeadlessTest.gd` to confirm the new car is stable before trusting it.
+They exit non-zero on failure. `HeadlessTest` drives the player **through the real
+keyboard input path** (`AutoDriver.gd` presses the same actions a human would) rather
+than poking the vehicle's internals, so the player control path is genuinely covered.
+
+Visual checks render through Mesa's software rasteriser, so they work with no GPU:
+
+```
+xvfb-run -a godot --path RacingGame --rendering-driver opengl3 scenes/ScreenshotTest.tscn -- moving
+```
+
+## Bugs these tests actually caught
+
+Every one of these was found by running the thing, not by reading the code:
+
+1. **Chase camera was in front of the car.** These models face `+Z`, so `basis.z` is
+   *forwards*; the camera was placed at `+forward` and looked back — the car had been
+   driving away from the camera the whole time.
+2. **The road had no collision.** It was built as a visual mesh only, so every car fell
+   through the world to y ≈ -4900. The test now asserts a minimum height.
+3. **Every road normal pointed down.** The quad winding was inverted for Godot's
+   convention, so the entire track was backface-culled and you saw the grass through it.
+   Confirmed by dumping the mesh normals: 0 of 2520 pointed up.
+4. **Standings were backwards at the start.** Lap progress wraps 0.99 → 0.02 at the
+   line, so an AI that had just crossed sorted *behind* a player who hadn't. Fixed with
+   a continuous distance-travelled counter that can't wrap.
+5. **Grass z-fought the road** and won, because it sat 2cm below it across a 900m plane.
+6. **Suspension launched the car airborne** under sustained throttle (too little travel,
+   under-damped).
+7. **Engine force was ~7x too weak** — the car crept to 3.5 km/h in five seconds.
+
+## Known limitations
+
+- **No audio.** There's no sound device in this container to test against, and the
+  Kenney kits ship no engine audio, so adding sound blind would be guessing.
+- Rendering was only ever verified through llvmpipe (software). Shadows are on and look
+  correct here, but check them on real hardware.
+- Cars collide with barriers and each other, but there's no damage model, tyre wear,
+  fuel, or pit stops.
+- The AI follows a fixed line offset rather than a true optimised racing line, and won't
+  actively defend a position.
+- One circuit, one car class.
+
+## Swapping in a real car
+
+Once you've bought and imported one of the cars from `final-50-cars.json`:
+1. Drop the `.glb` in `RacingGame/assets/models/`.
+2. Point `model_path` at it (`Main.gd` for the player, `FIELD` for the AI).
+3. If it doesn't use Kenney's `wheel-front-left` naming, rename its wheel nodes to match
+   — `RaceVehicle.gd` finds them by name and will warn if they're missing.
+4. Run `HeadlessTest.tscn` before trusting it.

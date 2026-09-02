@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2dsdxtf6hsdo"
-path="res://.godot/imported/roadCurved.glb-43138b6f04f09215ff32d5bf19779543.scn"
+uid="uid://cmy3q2duyaplw"
+path="res://.godot/imported/grandStand.glb-998c4c3491935e131a232b6993c23862.scn"
 
 [deps]
 
-source_file="res://assets/models/roadCurved.glb"
-dest_files=["res://.godot/imported/roadCurved.glb-43138b6f04f09215ff32d5bf19779543.scn"]
+source_file="res://assets/props/grandStand.glb"
+dest_files=["res://.godot/imported/grandStand.glb-998c4c3491935e131a232b6993c23862.scn"]
 
 [params]
 

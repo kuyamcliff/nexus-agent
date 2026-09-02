@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cswkvyene8exk"
-path="res://.godot/imported/roadStraight.glb-76c2f063d2a4710e0276d8a224e97534.scn"
+uid="uid://d231bxyr2uxup"
+path="res://.godot/imported/sedan-sports.glb-122cf2510322d78e5250a469c2d07212.scn"
 
 [deps]
 
-source_file="res://assets/models/roadStraight.glb"
-dest_files=["res://.godot/imported/roadStraight.glb-76c2f063d2a4710e0276d8a224e97534.scn"]
+source_file="res://assets/models/sedan-sports.glb"
+dest_files=["res://.godot/imported/sedan-sports.glb-122cf2510322d78e5250a469c2d07212.scn"]
 
 [params]
 

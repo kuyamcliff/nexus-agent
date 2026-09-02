@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxxx2q62emrws"
-path="res://.godot/imported/roadStart.glb-2ba987597aadb4ab2e0a07d2f2851fbc.scn"
+uid="uid://cpn4kgpm5jt5l"
+path="res://.godot/imported/pylon.glb-a7def53d437696e5bb8e468c4d578a60.scn"
 
 [deps]
 
-source_file="res://assets/models/roadStart.glb"
-dest_files=["res://.godot/imported/roadStart.glb-2ba987597aadb4ab2e0a07d2f2851fbc.scn"]
+source_file="res://assets/props/pylon.glb"
+dest_files=["res://.godot/imported/pylon.glb-a7def53d437696e5bb8e468c4d578a60.scn"]
 
 [params]
 
