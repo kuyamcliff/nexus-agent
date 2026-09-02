@@ -36,3 +36,5 @@ Thumbs.db
 
 # Large raw source assets that should go through LFS or stay out of git entirely
 tools/asset-acquisition/downloads/
+__pycache__/
+*.pyc
