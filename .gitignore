@@ -1,0 +1,40 @@
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]serSettings/
+/[Mm]emoryCaptures/
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+sysinfo.txt
+crashlytics-build.mk
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Rider/VS
+.vs/
+.idea/
+*.suo
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large raw source assets that should go through LFS or stay out of git entirely
+tools/asset-acquisition/downloads/
+__pycache__/
+*.pyc
